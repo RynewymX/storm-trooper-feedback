@@ -17,8 +17,15 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         return;
     }
 
+    // Name validation (only letters and spaces allowed)
+    const namePattern = /^[A-Za-z\s]+$/;
+    if (!namePattern.test(name)) {
+        alert('Name should only contain letters and spaces.');
+        return;
+    }
+
     // Age validation
-    if (isNaN(age) || age <= 0) {
+    if (isNaN(age) || age < 18) {
         alert('Please enter a valid age.');
         return;
     }
@@ -41,6 +48,24 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
         alert('Please enter a valid email address.');
+        return;
+    }
+
+    // City and State validation (only letters and spaces allowed)
+    const cityStatePattern = /^[A-Za-z\s]+$/;
+    if (!cityStatePattern.test(city)) {
+        alert('City should only contain letters and spaces.');
+        return;
+    }
+    if (!cityStatePattern.test(state)) {
+        alert('State should only contain letters and spaces.');
+        return;
+    }
+
+    // Street validation (no special characters, but allows numbers and spaces)
+    const streetPattern = /^[A-Za-z0-9\s]+$/;
+    if (!streetPattern.test(street)) {
+        alert('Street should only contain alphabets, numbers, and spaces (no special characters).');
         return;
     }
 
