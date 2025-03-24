@@ -17,23 +17,16 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // Name validation (only letters and spaces allowed)
-    const namePattern = /^[A-Za-z\s]+$/;
-    if (!namePattern.test(name)) {
-        alert('Name should only contain letters and spaces.');
-        return;
-    }
-
     // Age validation
     if (isNaN(age) || age < 18) {
         alert('Please enter a valid age.');
         return;
     }
 
-    // Phone number validation (10 digits)
-    const phonePattern = /^\d{10}$/;
+    // Phone number validation (xxx-xxx-xxxx format)
+    const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
     if (!phonePattern.test(phone)) {
-        alert('Please enter a valid 10-digit phone number.');
+        alert('Please enter a valid phone number in xxx-xxx-xxxx format.');
         return;
     }
 
@@ -51,14 +44,14 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // City and State validation (only letters and spaces allowed)
+    // City and State validation (only alphabets and spaces allowed)
     const cityStatePattern = /^[A-Za-z\s]+$/;
     if (!cityStatePattern.test(city)) {
-        alert('City should only contain letters and spaces.');
+        alert('City should only contain alphabets and spaces.');
         return;
     }
     if (!cityStatePattern.test(state)) {
-        alert('State should only contain letters and spaces.');
+        alert('State should only contain alphabets and spaces.');
         return;
     }
 
