@@ -44,16 +44,20 @@ document.getElementById('feedbackForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // City and State validation (only alphabets and spaces allowed)
-    const cityStatePattern = /^[A-Za-z\s]+$/;
-    if (!cityStatePattern.test(city)) {
+    // City validation (only alphabets and spaces allowed)
+    const StatePattern = /^[A-Za-z\s]+$/;
+    if (!StatePattern.test(state)) {
         alert('City should only contain alphabets and spaces.');
         return;
     }
-    if (!cityStatePattern.test(state)) {
-        alert('State should only contain alphabets and spaces.');
+
+    // City validation (allows alphabets, spaces, and periods)
+    const cityPattern = /^[A-Za-z\s.]+$/;
+    if (!cityPattern.test(city)) {
+        alert('City should only contain alphabets, spaces, and periods.');
         return;
     }
+
 
     // Street validation (no special characters, but allows numbers and spaces)
     const streetPattern = /^[A-Za-z0-9\s]+$/;
